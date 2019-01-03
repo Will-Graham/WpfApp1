@@ -17,10 +17,9 @@
         <Button x:Name="D10" Content="D10" HorizontalAlignment="Left" Height="33" Margin="254.2,48,0,0" VerticalAlignment="Top" Width="111" Click="D10_Click" Grid.Column="1" />
         <Label Content="D2 Result:" HorizontalAlignment="Left" Height="30" Margin="27,91,0,0" VerticalAlignment="Top" Width="111" Grid.ColumnSpan="2"/>
         <Label Content="D6 Result:" HorizontalAlignment="Left" Height="30" Margin="22.2,91,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
-        <Label x:Name="lblD6Result" Content="Nil" HorizontalAlignment="Left" Height="30" Margin="22.2,115,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
         <Button x:Name="D8" Content="D8" HorizontalAlignment="Left" Height="33" Margin="138.2,48,0,0" VerticalAlignment="Top" Width="111" Click="D8_Click" Grid.Column="1"/>
         <Label Content="D8 Result:" HorizontalAlignment="Left" Height="30" Margin="138.2,91,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
-        <Label x:Name="lblD8Result" Content="Nil" HorizontalAlignment="Left" Height="30" Margin="138.2,115,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
+        <Label x:Name="lblD8Result" Content="Nil" HorizontalAlignment="Left" Height="30" Margin="380.2,196,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
         <Label Content="D10 Result:" HorizontalAlignment="Left" Height="30" Margin="254.2,91,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
         <Label x:Name="lblD10Result" Content="Nil" HorizontalAlignment="Left" Height="30" Margin="254.2,115,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
         <Button x:Name="D10x10" Content="D10 (x 10)" HorizontalAlignment="Left" Height="33" Margin="370.2,48,0,0" VerticalAlignment="Top" Width="111" Click="D10x10_Click" Grid.Column="1"  />
@@ -39,6 +38,8 @@
         <TextBox x:Name="txtDiceAmount" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="380.2,293,0,0" Grid.Column="1" Text="1" TextChanged="txtDiceAmount_TextChanged"/>
         <Label Content="Amount of Dice" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="515.2,293,0,0" Height="30" Width="103" Grid.Column="1"/>
         <ListBox x:Name="lstD2Results" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" Margin="27,126,0,0"/>
+        <ListBox x:Name="lstD6Results" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="22.2,126,0,0" Grid.Column="1"/>
+        <ListBox x:Name="lstD8Results" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="138.2,126,0,0" Grid.Column="1"/>
 
     </Grid>
 </Window>

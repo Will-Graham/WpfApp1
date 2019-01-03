@@ -24,20 +24,20 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
-       private void DiceValidator() {
+       private void DiceValidator(bool a) {
             try
             {
                 int valuecheck = Convert.ToInt32(txtDiceAmount.Text);
                 if (valuecheck < 1)
                 {
-                    MessageBox.Show("The number entered as the no. of dices is less than 1." + Environment.NewLine + "Make sure the no. of dice is equal to or greater than 1", "Number Too Small", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (a == true){ MessageBox.Show("The number entered as the no. of dices is less than 1." + Environment.NewLine + "Make sure the no. of dice is equal to or greater than 1", "Number Too Small", MessageBoxButton.OK, MessageBoxImage.Error); }
                     txtDiceAmount.Text = "1";
 
                 }
             }
             catch
             {
-                MessageBox.Show("The character entered as the no. of dices is likely not valid" + Environment.NewLine + "Ensure the character is a number greater than or equal to 1", "Invalid Character", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (a == true) { MessageBox.Show("The character entered as the no. of dices is likely not valid" + Environment.NewLine + "Ensure the character is a number greater than or equal to 1", "Invalid Character", MessageBoxButton.OK, MessageBoxImage.Error); }
                 txtDiceAmount.Text = "1";
             }
         }
@@ -45,7 +45,7 @@ namespace WpfApp1
         private void D2_Click(object sender, RoutedEventArgs e)
         {
             
-            lblD2Result.Content = null;
+            //lblD2Result.Content = null;
             lstD2Results.Items.Clear();
             try
             {
@@ -61,14 +61,14 @@ namespace WpfApp1
                     if (result == 1)
                     {
                         lstD2Results.Items.Add(counter+": Heads");
-                        lblD2Result.Content = lblD2Result.Content + "Heads " + Environment.NewLine;
+                        //lblD2Result.Content = lblD2Result.Content + "Heads " + Environment.NewLine;
                         htotal = htotal + 1;
                         counter++;
                     }
                     else if (result == 2)
                     {
                         lstD2Results.Items.Add(counter+": Tails");
-                       lblD2Result.Content = lblD2Result.Content + "Tails " + Environment.NewLine;
+                       //lblD2Result.Content = lblD2Result.Content + "Tails " + Environment.NewLine;
                         ttotal = ttotal + 1;
                         counter++;
                     }
@@ -96,28 +96,48 @@ namespace WpfApp1
             lblD10Result.Content = result;
 
         }
-
         private void D6_Click(object sender, RoutedEventArgs e)
         {
-
+            lstD6Results.Items.Clear();
+            int counter = 1;
+            DiceValidator(false);
+            int dicenum = Convert.ToInt32(txtDiceAmount.Text);
             Random rand = new Random();
+            for (int i = 0; i < dicenum; i++)
+            {
+               
+                int result = rand.Next(1, 7);
 
-            int result = rand.Next(1, 7);
-
-            lblD6Result.Content = result;
-
+                //lblD6Result.Content = result;
+                lstD6Results.Items.Add(counter + ": " + result);
+                counter++;
+            }
 
         }
 
         private void D8_Click(object sender, RoutedEventArgs e)
         {
+            lstD8Results.Items.Clear();
+            int counter = 1;
+            DiceValidator(false);
+            int dicenum = Convert.ToInt32(txtDiceAmount.Text);
             Random rand = new Random();
+            for (int i = 0; i < dicenum; i++)
+            {
 
-            int result = rand.Next(1, 9);
+                int result = rand.Next(1, 9);
 
-            lblD8Result.Content = result;
+                //lblD6Result.Content = result;
+                lstD8Results.Items.Add(counter + ": " + result);
+                counter++;
+
+                //Random rand = new Random();
+
+                //int result = rand.Next(1, 9);
+
+                //lblD8Result.Content = result;
+            }
         }
-
         private void D10x10_Click(object sender, RoutedEventArgs e)
         {
             Random rand = new Random();
@@ -170,7 +190,7 @@ namespace WpfApp1
         private void txtDiceAmount_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtDiceAmount.Text != "")
-                DiceValidator();
+                DiceValidator(true);
             }
             }
 
