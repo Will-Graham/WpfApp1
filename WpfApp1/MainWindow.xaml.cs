@@ -99,7 +99,7 @@ namespace WpfApp1
             DiceValidator(false);
             int counter = 1;
             for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++) {
-                lstD10Results.Items.Add(counter + ": "+dicegen.DiceGenerator(0,10)); counter++;
+                lstD10Results.Items.Add(counter + ": "+dicegen.DiceGenerator(11)); counter++;
             }
             //int result = rand.Next(1, 11);
             //int result = dicegen.DiceGenerator(11);
@@ -135,6 +135,8 @@ namespace WpfApp1
             {
 
                 int result = rand.Next(1, 9);
+
+                //lblD6Result.Content = result;
                 lstD8Results.Items.Add(counter + ": " + result);
                 counter++;
 
@@ -154,7 +156,7 @@ namespace WpfApp1
             int counter = 1;
             for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
             {
-                lstD10x10Results.Items.Add(counter + ": " + (dicegen.DiceGenerator(0,10)*10)); counter++;
+                lstD10x10Results.Items.Add(counter + ": " + (dicegen.DiceGenerator(11)*10-10)); counter++;
             }
             //Random rand = new Random();
 
@@ -165,68 +167,42 @@ namespace WpfApp1
 
         private void D12_Click(object sender, RoutedEventArgs e)
         {
-            lstD12Results.Items.Clear();            
-            DiceGen dicegen = new DiceGen();
-            DiceValidator(false);
-            int counter = 1;
-            for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
-            {
-                lstD12Results.Items.Add(counter + ": " + dicegen.DiceGenerator(1, 13)); counter++;
-            }
-            //Random rand = new Random();
+            Random rand = new Random();
 
-            //int result = rand.Next(1, 13);
+            int result = rand.Next(1, 13);
 
-            //lblD12Result.Content = result;
+            lblD12Result.Content = result;
         }
 
         private void D20_Click(object sender, RoutedEventArgs e)
         {
-            lstD20Results.Items.Clear();
-            DiceGen dicegen = new DiceGen();
-            DiceValidator(false);
-            int counter = 1;
-            for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
-            {
-                lstD20Results.Items.Add(counter + ": " + dicegen.DiceGenerator(1, 21)); counter++;
-            }
-            //Random rand = new Random();
+            Random rand = new Random();
 
-            //int result = rand.Next(1, 21);
+            int result = rand.Next(1, 21);
 
-            //lblD20Result.Content = result;
+            lblD20Result.Content = result;
         }
 
 
         private void Dx_Click(object sender, RoutedEventArgs e)
         {
-            DiceValidator(false);
-            //int customNum = 50;
+
             try
             {
                 int customNum = Convert.ToInt32(txtDxCustom.Text);
-                //string customString = txtDxCustom.Text;
-                //Random rand = new Random();
+                string customString = txtDxCustom.Text;
+                Random rand = new Random();
 
-                //int result = rand.Next(1, customNum);
+                int result = rand.Next(1, customNum);
 
-                //lblDxResult.Content = result;
-                //lblDX.Content = ("D(" + customNum + "): result:");
-                lstDxResults.Items.Clear();
-                DiceGen dicegen = new DiceGen();
-                DiceValidator(false);
-                int counter = 1;
-                for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
-                {
-                    lstDxResults.Items.Add(counter + ": " + dicegen.DiceGenerator(1, customNum + 1)); counter++;
-                }
+                lblDxResult.Content = result;
+                lblDX.Content = ("D(" + customNum + "): result:");
             }
             catch
             {
-                MessageBox.Show("error, max dice value may be too large,small"
+                MessageBox.Show("error, number may be too large,small"
                    + ", or is otherwise invalid", "Number Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
 
         private void txtDiceAmount_TextChanged(object sender, TextChangedEventArgs e)
@@ -271,9 +247,9 @@ namespace WpfApp1
     public class DiceGen
     {
         Random rand = new Random();
-        public int DiceGenerator(int FirstNum, int DiceNum)
+        public int DiceGenerator(int DiceNum)
         {
-            int result = rand.Next(FirstNum, DiceNum);
+            int result = rand.Next(1, DiceNum);
             return result;
         }
     }
