@@ -19,12 +19,10 @@
         <Label Content="D6 Result:" HorizontalAlignment="Left" Height="30" Margin="22.2,91,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
         <Button x:Name="D8" Content="D8" HorizontalAlignment="Left" Height="33" Margin="138.2,48,0,0" VerticalAlignment="Top" Width="111" Click="D8_Click" Grid.Column="1"/>
         <Label Content="D8 Result:" HorizontalAlignment="Left" Height="30" Margin="138.2,91,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
-        <Label x:Name="lblD8Result" Content="Nil" HorizontalAlignment="Left" Height="30" Margin="380.2,196,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
         <Label Content="D10 Result:" HorizontalAlignment="Left" Height="30" Margin="254.2,91,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
-        <Label x:Name="lblD10Result" Content="Nil" HorizontalAlignment="Left" Height="30" Margin="254.2,115,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
         <Button x:Name="D10x10" Content="D10 (x 10)" HorizontalAlignment="Left" Height="33" Margin="370.2,48,0,0" VerticalAlignment="Top" Width="111" Click="D10x10_Click" Grid.Column="1"  />
         <Label Content="D10x10 Result:" HorizontalAlignment="Left" Height="30" Margin="370.2,91,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
-        <Label x:Name="lblD10x10Result" Content="Nil" HorizontalAlignment="Left" Height="30" Margin="370.2,115,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
+        <Label x:Name="lblD10x10Result" Content="Nil" HorizontalAlignment="Left" Height="30" Margin="286.2,231,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
         <Button x:Name="D12" Content="D12" HorizontalAlignment="Left" Height="33" Margin="486.2,48,0,0" VerticalAlignment="Top" Width="111" Click="D12_Click" Grid.Column="1" />
         <Label Content="D12 Result:" HorizontalAlignment="Left" Height="30" Margin="486.2,91,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
         <Label x:Name="lblD12Result" Content="Nil" HorizontalAlignment="Left" Height="30" Margin="486.2,115,0,0" VerticalAlignment="Top" Width="111" Grid.Column="1"/>
@@ -40,6 +38,8 @@
         <ListBox x:Name="lstD2Results" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" Margin="27,126,0,0"/>
         <ListBox x:Name="lstD6Results" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="22.2,126,0,0" Grid.Column="1"/>
         <ListBox x:Name="lstD8Results" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="138.2,126,0,0" Grid.Column="1"/>
+        <ListBox x:Name="lstD10Results" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="254.2,126,0,0" Grid.Column="1"/>
+        <ListBox x:Name="lstD10x10Results" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="370.2,126,0,0" Grid.Column="1"/>
 
     </Grid>
 </Window>
