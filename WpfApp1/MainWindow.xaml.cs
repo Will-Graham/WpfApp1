@@ -292,6 +292,7 @@ private void D12_Click(object sender, RoutedEventArgs e)
                 int D100val = D10val + D10x10val;
                 if (D100val == 0) { D100val = 100; }
                 lstD100Results.Items.Add(counter+": "+ D100val);
+                counter++;
             }
         }
     }
