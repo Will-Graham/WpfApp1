@@ -20,9 +20,12 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
         private void DiceValidator(bool a)
         {
@@ -91,20 +94,7 @@ namespace WpfApp1
             // MessageBox.Show("Htotal=" + htotal + " ttotal=" + ttotal);
             //  }
         }
-        private void D10_Click(object sender, RoutedEventArgs e)
-        {
-            lstD10Results.Items.Clear();
-            Random rand = new Random();
-            DiceGen dicegen = new DiceGen();
-            DiceValidator(false);
-            int counter = 1;
-            for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++) {
-                lstD10Results.Items.Add(counter + ": "+dicegen.DiceGenerator(0,10)); counter++;
-            }
-            //int result = rand.Next(1, 11);
-            //int result = dicegen.DiceGenerator(11);
-            //lblD10Result.Content = result;
-        }
+
         private void D6_Click(object sender, RoutedEventArgs e)
         {
             lstD6Results.Items.Clear();
@@ -145,33 +135,85 @@ namespace WpfApp1
                 //lblD8Result.Content = result;
             }
         }
+        private void D10_Click(object sender, RoutedEventArgs e)
+        {
+            D10Roll();
+            //lstD10Results.Items.Clear();
+            //Random rand = new Random();
+            //DiceGen dicegen = new DiceGen();
+            //DiceValidator(false);
+            //int counter = 1;
+            //for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++) {
+            //    lstD10Results.Items.Add(counter + ": "+dicegen.DiceGenerator(0,10)); counter++;
+            //}
+            ////int result = rand.Next(1, 11);
+            ////int result = dicegen.DiceGenerator(11);
+            ////lblD10Result.Content = result;
+        }
+        private void D10Roll()
+        {
+            lstD10Results.Items.Clear();
+            Random rand = new Random();
+            
+            DiceValidator(false);
+            int counter = 1;
+            for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
+            {
+                int result = DiceGen.DiceGenerator(0, 10);
+                lstD10Results.Items.Add(counter + ": " + result); counter++;
+                D100Handler.setval10(result);
+            }
+            //int result = rand.Next(1, 11);
+            //int result = dicegen.DiceGenerator(11);
+            //lblD10Result.Content = result;
+        }
         private void D10x10_Click(object sender, RoutedEventArgs e)
         {
+            D10x10roll();
+            //lstD10x10Results.Items.Clear();
+            //Random rand = new Random();
+            //DiceGen dicegen = new DiceGen();
+            //DiceValidator(false);
+            //int counter = 1;
+            //for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
+            //{
+            //    lstD10x10Results.Items.Add(counter + ": " + (dicegen.DiceGenerator(0,10)*10)); counter++;
+            //}
+            ////Random rand = new Random();
+
+            ////int result = rand.Next(1, 11) * 10;
+
+            ////lblD10x10Result.Content = result;
+        }
+        private void D10x10roll()
+        {
+           
             lstD10x10Results.Items.Clear();
             Random rand = new Random();
-            DiceGen dicegen = new DiceGen();
-            DiceValidator(false);
-            int counter = 1;
-            for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
+        
+        DiceValidator(false);
+        int counter = 1;
+            for (int i = 0; i<Convert.ToInt32(txtDiceAmount.Text); i++)
             {
-                lstD10x10Results.Items.Add(counter + ": " + (dicegen.DiceGenerator(0,10)*10)); counter++;
+                int result = (DiceGen.DiceGenerator(0, 10) * 10);
+                lstD10x10Results.Items.Add(counter + ": " + result ); counter++;
+                D100Handler.setval10x10(result);
             }
-            //Random rand = new Random();
+    //Random rand = new Random();
 
-            //int result = rand.Next(1, 11) * 10;
+    //int result = rand.Next(1, 11) * 10;
 
-            //lblD10x10Result.Content = result;
-        }
-
-        private void D12_Click(object sender, RoutedEventArgs e)
+    //lblD10x10Result.Content = result;
+}
+private void D12_Click(object sender, RoutedEventArgs e)
         {
             lstD12Results.Items.Clear();            
-            DiceGen dicegen = new DiceGen();
+            //DiceGen dicegen = new DiceGen();
             DiceValidator(false);
             int counter = 1;
             for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
             {
-                lstD12Results.Items.Add(counter + ": " + dicegen.DiceGenerator(1, 13)); counter++;
+                lstD12Results.Items.Add(counter + ": " + DiceGen.DiceGenerator(1, 13)); counter++;
             }
             //Random rand = new Random();
 
@@ -183,12 +225,12 @@ namespace WpfApp1
         private void D20_Click(object sender, RoutedEventArgs e)
         {
             lstD20Results.Items.Clear();
-            DiceGen dicegen = new DiceGen();
+            //DiceGen dicegen = new DiceGen();
             DiceValidator(false);
             int counter = 1;
             for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
             {
-                lstD20Results.Items.Add(counter + ": " + dicegen.DiceGenerator(1, 21)); counter++;
+                lstD20Results.Items.Add(counter + ": " + DiceGen.DiceGenerator(1, 21)); counter++;
             }
             //Random rand = new Random();
 
@@ -213,12 +255,12 @@ namespace WpfApp1
                 //lblDxResult.Content = result;
                 //lblDX.Content = ("D(" + customNum + "): result:");
                 lstDxResults.Items.Clear();
-                DiceGen dicegen = new DiceGen();
+                //DiceGen dicegen = new DiceGen();
                 DiceValidator(false);
                 int counter = 1;
                 for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
                 {
-                    lstDxResults.Items.Add(counter + ": " + dicegen.DiceGenerator(1, customNum + 1)); counter++;
+                    lstDxResults.Items.Add(counter + ": " + DiceGen.DiceGenerator(1, customNum + 1)); counter++;
                 }
             }
             catch
@@ -233,6 +275,24 @@ namespace WpfApp1
         {
             if (txtDiceAmount.Text != "")
                 DiceValidator(true);
+        }
+
+        private void D100_Click(object sender, RoutedEventArgs e)
+        {
+            D100Handler.clearout();
+            D10Roll();
+            D10x10roll();
+            DiceValidator(false);
+            int counter = 1;
+            for (int i = 0; i < Convert.ToInt32(txtDiceAmount.Text); i++)
+
+            {
+                int D10val = D100Handler.getval10(i);
+                int D10x10val = D100Handler.getval10x10(i);
+                int D100val = D10val + D10x10val;
+                if (D100val == 0) { D100val = 100; }
+                lstD100Results.Items.Add(counter+": "+ D100val);
+            }
         }
     }
 
@@ -268,13 +328,47 @@ namespace WpfApp1
     //        }
     //    }
     //}
-    public class DiceGen
+    public static class DiceGen
     {
-        Random rand = new Random();
-        public int DiceGenerator(int FirstNum, int DiceNum)
+       static Random rand = new Random();
+        public static int DiceGenerator(int FirstNum, int DiceNum)
         {
             int result = rand.Next(FirstNum, DiceNum);
             return result;
         }
     }
+    public static class D100Handler
+    {
+        private static List<int> d10 = new List<int>();
+        private static List<int> d10x10 = new List<int>();
+        public static void setval10(int a)
+        {
+            d10.Add(a);
+        }
+        public static int getval10(int a)
+        {
+            int content = d10.ElementAt(a);
+            return content;
+
+        }
+        public static void setval10x10(int a)
+        {
+            d10x10.Add(a);
+        }
+        public static int getval10x10(int a)
+        {
+            int content = d10x10.ElementAt(a);
+            return content;
+        }
+        public static void clearout()
+        {
+            d10.Clear();
+            d10x10.Clear();
+
+         }
+
+    }
+
+
+
 }
